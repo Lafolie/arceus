@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('install.static', filename='install.css') }}">
+{% endblock %}
+
+{% block content %}
+	<div class="container w-75">
+		<div class="card bg-light">
+			<div class="card-head text-dark pl-2 pt-2">
+				<h1>Arceus Installer</h1>
+			</div>
+			<div class="card-body bg-dark m-1">
+				<h3>{{ task.title }}</h3>
+				<hr class="dropdown-divider" />
+				<div class="container">
+						<p>{{ task.description|safe }}</p>
+				</div>
+				{% if task.logLines|length() > 0 %}
+				<div class="container mb-2">
+					<h5>Output Log</h5>
+					<div class="p-2 rounded overflow-auto log">
+						<code class="text-light">
+							{% for line in task.logLines %}
+								{{ line }}<br />
+							{% endfor %}
+						</code>
+					</div>
+				</div>
+				{% endif %}
+				<div class="container">
+					<p>{{ task.passedText if task.passed else task.failedText }}</p>
+				</div>
+				<div class="container-fluid mt-2 mb-n2">
+					<div class="float-right mb-n2">
+					<form action="{{ task.nextTask }}" method="post">
+						<button class="btn btn-primary ml-auto" type="submit">Next</button>
+					</form>
+					</div>
+				</div>
+
+			<!-- /CARDBODY -->
+			</div>
+		</div>
+	</div>
+{% endblock %}

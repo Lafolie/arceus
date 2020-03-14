@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="Arceus">
+	<meta name="keywords" content="">
+	<meta name="author" content="Dale James">
+
+	<!-- Important stuff  -->
+	<title>Arceus</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- BOOTSTRAP -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	
+
+	<!-- My Scripts! -->
+
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	{% block css %}{% endblock %}
+	<!-- <link rel="stylesheet" href="notify.css"> -->
+	<!-- <link rel="stylesheet" href="test.css"> -->
+</head>
+<body>
+	<h1>Welcome to Arceus</h1>
+	{% block content %}{% endblock %}
+</body>
+</html>
